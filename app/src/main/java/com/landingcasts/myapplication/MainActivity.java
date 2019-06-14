@@ -1,6 +1,7 @@
 package com.landingcasts.myapplication;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnMoveActivity;
     Button btnMoveWithDataActivity;
+    Button btnDialNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnMoveWithDataActivity = findViewById(R.id.btn_move_with_data_activity);
         btnMoveWithDataActivity.setOnClickListener(this);
+
+        btnDialNumber = findViewById(R.id.btn_dial_number);
+        btnDialNumber.setOnClickListener(this);
     }
 
     @Override
@@ -34,6 +39,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_NAME, "DicodingAcademy Boy");
                 moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_AGE, 5);
                 startActivity(moveWithDataIntent);
+                break;
+            case  R.id.btn_dial_number:
+                String phoneNumber = "087758578077";
+                Intent dialPhoneIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+phoneNumber));
+                startActivity(dialPhoneIntent);
                 break;
         }
     }
