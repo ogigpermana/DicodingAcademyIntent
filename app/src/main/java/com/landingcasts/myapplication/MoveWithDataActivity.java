@@ -15,6 +15,10 @@ public class MoveWithDataActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_move_data);
 
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setTitle("Activity Dengan Membawa Data");
+        }
+
         tvWithDataReceived = findViewById(R.id.tv_data_received);
 
         String name = getIntent().getStringExtra(EXTRA_NAME);

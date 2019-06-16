@@ -30,16 +30,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()){
+            // Explicit Intent
             case R.id.btn_move_activity:
                 Intent moveIntent = new Intent(MainActivity.this, MoveActivity.class);
                 startActivity(moveIntent);
                 break;
+            // Explicit Intent sample
             case  R.id.btn_move_with_data_activity:
                 Intent moveWithDataIntent = new Intent(MainActivity.this, MoveWithDataActivity.class);
                 moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_NAME, "DicodingAcademy Boy");
                 moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_AGE, 5);
                 startActivity(moveWithDataIntent);
                 break;
+            // Implicit Intent sample
             case  R.id.btn_dial_number:
                 String phoneNumber = "087758578077";
                 Intent dialPhoneIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+phoneNumber));
